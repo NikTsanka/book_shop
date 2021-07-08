@@ -3,11 +3,6 @@ Ben-Hur: A Tale of the Christ / 2 / English / 81 / 19.81
 Black Beauty / 3 / English / 22 / 9.57
 Charlotte's Web / 4 / English / 2 / 12.67
 Harry Potter and the Chamber of Secrets / 5 / English / 12 / 7.24
-Harry Potter and the Deathly Hallows / 5 / English / 5 / 4.24
-Harry Potter and the Goblet of Fire / 5 / English / 61 / 20.33
-Harry Potter and the Half-Blood Prince / 5 / English / 54 / 3.34
-Harry Potter and the Order of the Phoenix / 5 / English / 74 / 15.33
-Harry Potter and the Prisoner of Azkaban / 5 / English / 96 / 17.3
 Heidi / 6 / Swiss German / 13 / 16.95
 Lolita / 7 / English / 4 / 23.12
 One Hundred Years of Solitude (Cien años de soledad) / 8 / Spanish / 37 / 6.8
@@ -25,7 +20,6 @@ The Lion, the Witch and the Wardrobe / 19 / English / 60 / 20.52
 The Name of the Rose (Il Nome della Rosa) / 20 / Italian / 91 / 1.27
 Watership Down / 21 / English / 11 / 7.96
 You Can Heal Your Life / 22 / English / 11 / 3.91
-Harry Potter and the Philosopher's Stone / 5 / English / 72 / 25.06
 The Little Prince / 23 / French / 34 / 22.92
 Dream of the Red Chamber / 24 / Chinese / 20 / 23.96
 The Hobbit / 25 / English / 34 / 21.26
@@ -37,8 +31,6 @@ A Message to Garcia / 30 / English / 55 / 15.11
 To Kill a Mockingbird / 31 / English / 56 / 25.49
 Flowers in the Attic / 32 / English / 8 / 10.28
 Cosmos / 33 / English / 47 / 14.39
-Sophie's World (Sofies verden) / 34 / Norwegian / 27 / 26.14
-Angels & Demons / 15 / English / 97 / 21
 Kane and Abel / 35 / English / 29 / 29.14
 How the Steel Was Tempered (Как закалялась сталь) / 36 / Russian / 73 / 6
 War and Peace (Война и мир) / 37 / Russian / 35 / 0.71
@@ -54,8 +46,6 @@ Rebecca / 46 / English / 76 / 11.14
 Nineteen Eighty-Four / 47 / English / 90 / 21.45
 The Revolt of Mamie Stover / 48 / English / 30 / 1.67
 The Girl with the Dragon Tattoo (Män som hatar kvinnor) / 49 / Swedish / 15 / 15.17
-The Lost Symbol / 15 / English / 24 / 5.63
-The Hunger Games / 50 / English / 49 / 23.7
 James and the Giant Peach / 51 / English / 8 / 10.42
 The Young Guard (Молодая гвардия) / 52 / Russian / 34 / 12.35
 Who Moved My Cheese? / 53 / English / 42 / 14.75
@@ -72,7 +62,6 @@ Uncle Styopa (Дядя Степа) / 63 / Russian / 9 / 8.85
 The Godfather / 64 / English / 71 / 6.85
 Love Story / 65 / English / 71 / 18.55
 Catching Fire / 50 / English / 83 / 14.02
-Mockingjay / 50 / English / 7 / 21.07
 Kitchen / 66 / Japanese / 91 / 7.44
 Andromeda Nebula / 67 / Russian / 4 / 5.84
 Autobiography of a Yogi / 68 / Hindi / 58 / 27.75
@@ -81,7 +70,6 @@ The Girl on the Train / 70 / English / 76 / 4.39
 All Quiet on the Western Front (Im Westen nichts Neues) / 71 / German / 75 / 11.1
 The Bermuda Triangle / 72 / English / 52 / 17.93
 Things Fall Apart / 73 / English / 11 / 6.54
-Animal Farm / 47 / English / 43 / 11.89
 Wolf Totem (狼图腾) / 74 / Chinese / 61 / 9.19
 The Happy Hooker: My Own Story / 75 / English / 78 / 10.3
 Jaws / 76 / English / 63 / 19.44
@@ -98,5 +86,4 @@ The Power of Positive Thinking / 86 / English / 12 / 3.56
 The Secret / 87 / English / 15 / 19.25
 Fear of Flying / 88 / English / 81 / 18.51
 Dune / 89 / English / 32 / 11.68
-Charlie and the Chocolate Factory / 51 / English / 27 / 19.13
 The Naked Ape / 90 / English / 16 / 6.24
