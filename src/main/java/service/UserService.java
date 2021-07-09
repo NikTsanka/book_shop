@@ -1,10 +1,12 @@
-import db.Initializer;
+package service;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class Application {
+public class UserService {
 
+   /*
+    Application application = new Application();
     Scanner sc = new Scanner(System.in);
     String url = "jdbc:mysql://localhost:3306/book_shop";
     String user = "root";
@@ -15,80 +17,7 @@ public class Application {
     ResultSet rs;
     String loggedUser = "";
 
-    public static void main(String[] args) {
-        Initializer initializer = new Initializer();
-        initializer.readAuthorsFile();
-        initializer.readBooksFile();
-        System.out.println("Hello. Welcome to our Book Shop!");
-        Application app = new Application();
-        app.run();
-
-    }
-
-    public void run() {
-        System.out.println(
-                "Please choice operation: \n" +
-                        "1 - Register.\n" +
-                        "2 - Login. \n" +
-                        "3 - Random Books. \n" +
-                        "4 - Check user status. \n" +
-                        "5 - Find books with id. \n" +
-                        "12 - exit"
-        );
-
-        String symbol = sc.nextLine();
-        switch (symbol) {
-            case "1":
-                registerUser(url, user, dbPassword, sc);
-                break;
-            case "2":
-                loginUser(url, user, dbPassword, sc);
-                break;
-            case "3":
-                randomBooks();
-                break;
-            case "4":
-                isUserLoggedIn();
-                break;
-            case "5":
-                findBookWithId();
-                break;
-            case "12":
-                System.exit(0);
-                break;
-        }
-    }
-
-    public void userMenu() {
-        System.out.println(
-                "Please choice operation: \n" +
-                        "1 - My Books.\n" +
-                        "2 - Add Books. \n" +
-                        "3 - Delete Books. \n" +
-                        "4 - Home menu. \n" +
-                        "5 - exit"
-        );
-        String symbol = sc.nextLine();
-        switch (symbol) {
-            case "1":
-
-                break;
-            case "2":
-
-                break;
-            case "3":
-
-                break;
-            case "4":
-                run();
-                break;
-            case "5":
-                System.exit(0);
-                break;
-        }
-    }
-
-    private void loginUser(String url, String user, String dbPassword, Scanner sc) {
+    public void loginUser(String url, String user, String dbPassword, Scanner sc) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.users WHERE username = ? and password = ?";
@@ -103,17 +32,17 @@ public class Application {
             if (rs.next()) {
                 loggedUser = uName;
                 System.out.println(loggedUser + " is connected.");
-                userMenu();
+                application.userMenu();
             } else {
                 System.out.println("User not found. Please register or login with other username");
-                run();
+                application.run();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private void registerUser(String url, String user, String dbPassword, Scanner sc) {
+    public void registerUser(String url, String user, String dbPassword, Scanner sc) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String statement = "INSERT INTO book_shop.users (name, lastname, username, password) VALUES (?,?,?,?)";
@@ -139,7 +68,7 @@ public class Application {
         }
     }
 
-    private void randomBooks() {
+    public void randomBooks() {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.books ORDER BY RAND() LIMIT 10";
@@ -157,34 +86,16 @@ public class Application {
         }
     }
 
-    private void isUserLoggedIn() {
+    public void isUserLoggedIn() {
         if (loggedUser.isEmpty()) {
             System.out.println("-- User not connected! --");
-            run();
+            application.run();
         } else {
             System.out.println("-- " + loggedUser + " is connected! --");
-            userMenu();
+            application.userMenu();
         }
     }
+    */
 
-    private void findBookWithId() {
-        try {
-            System.out.print("Enter book id: ");
-            String bookId = sc.nextLine();
-            connection = DriverManager.getConnection(url, user, dbPassword);
-            String select = "SELECT * FROM book_shop.books WHERE id = ?";
-            pst = connection.prepareStatement(select);
-            pst.setString(1, bookId);
-            rs = pst.executeQuery();
-            if (!rs.next()) {
-                System.out.println("Book with id: " + bookId + " not found!");
-                run();
-            } else {
-                System.out.println("There are " + rs.getString("count") + " books left in the repository");
-                run();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

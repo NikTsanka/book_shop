@@ -3,14 +3,14 @@ package model;
 public class Author {
 
     private int id;
-    private String authorName;
+    private String author;
 
     public Author() {
     }
 
-    public Author(int id, String authorName) {
+    public Author(int id, String author) {
         this.id = id;
-        this.authorName = authorName;
+        this.author = author;
     }
 
     public int getId() {
@@ -21,11 +21,11 @@ public class Author {
         this.id = id;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
