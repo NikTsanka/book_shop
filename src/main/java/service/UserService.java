@@ -5,16 +5,8 @@ import java.util.Scanner;
 
 public class UserService {
 
-   /*
-    Application application = new Application();
-    Scanner sc = new Scanner(System.in);
-    String url = "jdbc:mysql://localhost:3306/book_shop";
-    String user = "root";
-    String dbPassword = "root";
     Connection connection = null;
     PreparedStatement pst;
-    Statement st;
-    ResultSet rs;
     String loggedUser = "";
 
     public void loginUser(String url, String user, String dbPassword, Scanner sc) {
@@ -32,10 +24,6 @@ public class UserService {
             if (rs.next()) {
                 loggedUser = uName;
                 System.out.println(loggedUser + " is connected.");
-                application.userMenu();
-            } else {
-                System.out.println("User not found. Please register or login with other username");
-                application.run();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,34 +56,13 @@ public class UserService {
         }
     }
 
-    public void randomBooks() {
-        try {
-            connection = DriverManager.getConnection(url, user, dbPassword);
-            String select = "SELECT * FROM book_shop.books ORDER BY RAND() LIMIT 10";
-            st = connection.createStatement();
-            rs = st.executeQuery(select);
-            while (rs.next()) {
-                System.out.print("ID: " + rs.getString("id") + ". ");
-                System.out.print("NAME: " + rs.getString("name") + ". ");
-                System.out.print("LANGUAGE: " + rs.getString("language") + ". ");
-                System.out.print("COUNT: " + rs.getString("count") + ". ");
-                System.out.println("PRICE: " + rs.getString("price") + "$");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void isUserLoggedIn() {
+    public boolean isUserLoggedIn() {
         if (loggedUser.isEmpty()) {
             System.out.println("-- User not connected! --");
-            application.run();
-        } else {
-            System.out.println("-- " + loggedUser + " is connected! --");
-            application.userMenu();
+            return false;
         }
+        System.out.println("-- " + loggedUser + " is connected! --");
+        return true;
     }
-    */
-
 
 }

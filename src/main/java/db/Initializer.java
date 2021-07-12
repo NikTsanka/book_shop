@@ -56,11 +56,11 @@ public class Initializer {
                 for (String line : lines) {
                     String[] split = line.split("/");
                     String name = split[0].trim();
-                    int id = Integer.parseInt(split[1].trim());
+                    int authorId = Integer.parseInt(split[1].trim());
                     String language = split[2].trim();
                     int count = Integer.parseInt(split[3].trim());
                     double price = Double.parseDouble(split[4].trim());
-                    insertBooks(id, name, language, count, price, connection);
+                    insertBooks(authorId, name, language, count, price, connection);
                     System.out.println("All books added in database");
                 }
             } else {
@@ -87,7 +87,7 @@ public class Initializer {
     }
 
     private void insertBooks(
-            int id,
+            int authorId,
             String name,
             String language,
             int count,
@@ -95,9 +95,9 @@ public class Initializer {
             java.sql.Connection connection
     ) {
         try {
-            String statement = "INSERT INTO book_shop.books (id, name, language, count, price ) VALUES (?,?,?,?,?)";
+            String statement = "INSERT INTO book_shop.books (author_id, name, language, count, price ) VALUES (?,?,?,?,?)";
             pst = connection.prepareStatement(statement);
-            pst.setInt(1, id);
+            pst.setInt(1, authorId);
             pst.setString(2, name);
             pst.setString(3, language);
             pst.setInt(4, count);
