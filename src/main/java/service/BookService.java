@@ -5,7 +5,15 @@ import java.util.Scanner;
 
 public class BookService {
 
-    public void findBookById(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
+    public void findBookById(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            ResultSet rs,
+            Scanner sc
+    ) {
         try {
             System.out.print("Enter book id: ");
             String bookId = sc.nextLine();
@@ -24,7 +32,15 @@ public class BookService {
         }
     }
 
-    public void findBookByName(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
+    public void findBookByName(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            ResultSet rs,
+            Scanner sc
+    ) {
         System.out.print("Enter book name: ");
         String bName = sc.nextLine();
         try {
@@ -42,7 +58,15 @@ public class BookService {
         }
     }
 
-    public void findBookByPrice(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
+    public void findBookByPrice(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            ResultSet rs,
+            Scanner sc
+    ) {
         System.out.print("Enter book price: ");
         String bPrice = sc.nextLine();
         try {
@@ -59,7 +83,14 @@ public class BookService {
         }
     }
 
-    public void randomBooks(String url, String user, String dbPassword, Connection connection, Statement st, ResultSet rs) {
+    public void randomBooks(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            Statement st,
+            ResultSet rs
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.books ORDER BY RAND() LIMIT 10";

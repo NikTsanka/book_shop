@@ -5,7 +5,14 @@ import java.util.Scanner;
 
 public class AuthorService {
 
-    public void randomAuthors(String url, String user, String dbPassword, Connection connection, Statement st, ResultSet rs) {
+    public void randomAuthors(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            Statement st,
+            ResultSet rs
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.authors ORDER BY RAND() LIMIT 10";
@@ -20,7 +27,15 @@ public class AuthorService {
         }
     }
 
-    public void getBooksByAuthorId(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
+    public void getBooksByAuthorId(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            ResultSet rs,
+            Scanner sc
+    ) {
         try {
             System.out.print("Enter author id: ");
             String authorId = sc.nextLine();
@@ -29,10 +44,10 @@ public class AuthorService {
             pst = connection.prepareStatement(select);
             pst.setString(1, authorId);
             rs = pst.executeQuery();
-                while (rs.next()) {
-                    System.out.print("ID: " + rs.getString("id") + ". ");
-                    System.out.println("Title: " + rs.getString("name") + ". ");
-                }
+            while (rs.next()) {
+                System.out.print("ID: " + rs.getString("id") + ". ");
+                System.out.println("Title: " + rs.getString("name") + ". ");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

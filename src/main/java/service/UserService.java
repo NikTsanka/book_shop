@@ -8,7 +8,14 @@ public class UserService {
     String loggedUser = "";
     int loggedUserId = 0;
 
-    public void loginUser(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, Scanner sc) {
+    public void loginUser(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            Scanner sc
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.users WHERE username = ? and password = ?";
@@ -31,7 +38,14 @@ public class UserService {
         }
     }
 
-    public void registerUser(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, Scanner sc) {
+    public void registerUser(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            Scanner sc
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String statement = "INSERT INTO book_shop.users (name, lastname, username, password) VALUES (?,?,?,?)";
@@ -66,7 +80,14 @@ public class UserService {
         return true;
     }
 
-    public void userBooks(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs) {
+    public void userBooks(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            ResultSet rs
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.books WHERE user_id = ? ORDER BY RAND() LIMIT 10";
@@ -82,7 +103,14 @@ public class UserService {
         }
     }
 
-    public void addBookWithId(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, Scanner sc) {
+    public void addBookWithId(
+            String url,
+            String user,
+            String dbPassword,
+            Connection connection,
+            PreparedStatement pst,
+            Scanner sc
+    ) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String addBook = "UPDATE books SET user_id = ? WHERE id = ?";
