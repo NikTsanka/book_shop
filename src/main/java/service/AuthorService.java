@@ -5,16 +5,7 @@ import java.util.Scanner;
 
 public class AuthorService {
 
-    Scanner sc = new Scanner(System.in);
-    String url = "jdbc:mysql://localhost:3306/book_shop";
-    String user = "root";
-    String dbPassword = "root";
-    Connection connection = null;
-    PreparedStatement pst;
-    Statement st;
-    ResultSet rs;
-
-    public void randomAuthors() {
+    public void randomAuthors(String url, String user, String dbPassword, Connection connection, Statement st, ResultSet rs) {
         try {
             connection = DriverManager.getConnection(url, user, dbPassword);
             String select = "SELECT * FROM book_shop.authors ORDER BY RAND() LIMIT 10";
@@ -29,7 +20,7 @@ public class AuthorService {
         }
     }
 
-    public void getBooksByAuthorId() {
+    public void getBooksByAuthorId(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
         try {
             System.out.print("Enter author id: ");
             String authorId = sc.nextLine();

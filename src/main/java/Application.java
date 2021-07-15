@@ -1,16 +1,27 @@
-import db.Initializer;
+import dbinitializer.Initializer;
 import service.AuthorService;
 import service.BookService;
 import service.UserService;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class Application {
 
+    private final String url = "jdbc:mysql://localhost:3306/book_shop";
+    private final String user = "root";
+    private final String dbPassword = "root";
     Scanner sc = new Scanner(System.in);
-    String url = "jdbc:mysql://localhost:3306/book_shop";
-    String user = "root";
-    String dbPassword = "root";
+    Connection connection = null;
+    PreparedStatement pst;
+    Statement st;
+    ResultSet rs;
+    UserService userService;
+    BookService bookService;
+    AuthorService authorService;
 
     public static void main(String[] args) {
         Initializer initializer = new Initializer();
@@ -22,10 +33,10 @@ public class Application {
 
     }
 
-    public void run() {
-        UserService userService = new UserService();
-        BookService bookService = new BookService();
-        AuthorService authorService = new AuthorService();
+    private void run() {
+        userService = new UserService();
+        bookService = new BookService();
+        authorService = new AuthorService();
         boolean isEnabled = true;
         while (isEnabled) {
             System.out.println(
@@ -35,8 +46,8 @@ public class Application {
                             "3 - Random Books. \n" +
                             "4 - Check user status. \n" +
                             "5 - Find books by id. \n" +
-                            "6 - . \n" +
-                            "7 - . \n" +
+                            "6 - Show user books. \n" +
+                            "7 - Add user books. \n" +
                             "8 - Random Authors. \n" +
                             "9 - Find books by author id. \n" +
                             "10 - Find books by name. \n" +
@@ -49,13 +60,13 @@ public class Application {
             String symbol = sc.nextLine();
             switch (symbol) {
                 case "1":
-                    userService.registerUser(url, user, dbPassword, sc);
+                    userService.registerUser(url, user, dbPassword, connection, pst, sc);
                     break;
                 case "2":
-                    userService.loginUser(url, user, dbPassword, sc);
+                    userService.loginUser(url, user, dbPassword, connection, pst, sc);
                     break;
                 case "3":
-                    bookService.randomBooks();
+                    bookService.randomBooks(url, user, dbPassword, connection, st, rs);
                     break;
                 case "4":
                     boolean loggedIn = userService.isUserLoggedIn();
@@ -64,25 +75,25 @@ public class Application {
                     }
                     break;
                 case "5":
-                    bookService.findBookWithId();
+                    bookService.findBookById(url, user, dbPassword, connection, pst, rs, sc);
                     break;
                 case "6":
-
+                    userService.userBooks(url, user, dbPassword, connection, pst, rs);
                     break;
                 case "7":
-
+                    userService.addBookWithId(url, user, dbPassword, connection, pst, sc);
                     break;
                 case "8":
-                    authorService.randomAuthors();
+                    authorService.randomAuthors(url, user, dbPassword, connection, st, rs);
                     break;
                 case "9":
-                    authorService.getBooksByAuthorId();
+                    authorService.getBooksByAuthorId(url, user, dbPassword, connection, pst, rs, sc);
                     break;
                 case "10":
-                    bookService.findBooksByName();
+                    bookService.findBookByName(url, user, dbPassword, connection, pst, rs, sc);
                     break;
                 case "11":
-                    bookService.findBooksByPrice();
+                    bookService.findBookByPrice(url, user, dbPassword, connection, pst, rs, sc);
                     break;
                 case "12":
                     System.exit(0);
@@ -91,33 +102,32 @@ public class Application {
         }
     }
 
-    public void userMenu() {
+    private void userMenu() {
+//        boolean isEnabled = true;
+//        while (isEnabled) {
         System.out.println(
                 "Please choice operation: \n" +
                         "1 - My Books.\n" +
                         "2 - Add Books. \n" +
-                        "3 - Delete Books. \n" +
-                        "4 - Home menu. \n" +
-                        "5 - exit"
+                        "3 - Home menu. \n" +
+                        "4 - exit"
         );
         String symbol = sc.nextLine();
         switch (symbol) {
             case "1":
-
+                userService.userBooks(url, user, dbPassword, connection, pst, rs);
                 break;
             case "2":
-
+                userService.addBookWithId(url, user, dbPassword, connection, pst, sc);
                 break;
             case "3":
-
-                break;
-            case "4":
                 run();
                 break;
-            case "5":
+            case "4":
                 System.exit(0);
                 break;
         }
+//        }
     }
 
 }

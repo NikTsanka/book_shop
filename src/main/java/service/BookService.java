@@ -5,16 +5,7 @@ import java.util.Scanner;
 
 public class BookService {
 
-    Scanner sc = new Scanner(System.in);
-    String url = "jdbc:mysql://localhost:3306/book_shop";
-    String user = "root";
-    String dbPassword = "root";
-    Connection connection = null;
-    PreparedStatement pst;
-    Statement st;
-    ResultSet rs;
-
-    public void findBookWithId() {
+    public void findBookById(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
         try {
             System.out.print("Enter book id: ");
             String bookId = sc.nextLine();
@@ -33,25 +24,7 @@ public class BookService {
         }
     }
 
-    public void randomBooks() {
-        try {
-            connection = DriverManager.getConnection(url, user, dbPassword);
-            String select = "SELECT * FROM book_shop.books ORDER BY RAND() LIMIT 10";
-            st = connection.createStatement();
-            rs = st.executeQuery(select);
-            while (rs.next()) {
-                System.out.print("ID: " + rs.getString("id") + ". ");
-                System.out.print("NAME: " + rs.getString("name") + ". ");
-                System.out.print("LANGUAGE: " + rs.getString("language") + ". ");
-                System.out.print("COUNT: " + rs.getString("count") + ". ");
-                System.out.println("PRICE: " + rs.getString("price") + "$");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void findBooksByName() {
+    public void findBookByName(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
         System.out.print("Enter book name: ");
         String bName = sc.nextLine();
         try {
@@ -69,7 +42,7 @@ public class BookService {
         }
     }
 
-    public void findBooksByPrice() {
+    public void findBookByPrice(String url, String user, String dbPassword, Connection connection, PreparedStatement pst, ResultSet rs, Scanner sc) {
         System.out.print("Enter book price: ");
         String bPrice = sc.nextLine();
         try {
@@ -80,6 +53,24 @@ public class BookService {
             rs = pst.executeQuery();
             while (rs.next()) {
                 System.out.println("Title: " + rs.getString("name") + ". ");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void randomBooks(String url, String user, String dbPassword, Connection connection, Statement st, ResultSet rs) {
+        try {
+            connection = DriverManager.getConnection(url, user, dbPassword);
+            String select = "SELECT * FROM book_shop.books ORDER BY RAND() LIMIT 10";
+            st = connection.createStatement();
+            rs = st.executeQuery(select);
+            while (rs.next()) {
+                System.out.print("ID: " + rs.getString("id") + ". ");
+                System.out.print("NAME: " + rs.getString("name") + ". ");
+                System.out.print("LANGUAGE: " + rs.getString("language") + ". ");
+                System.out.print("COUNT: " + rs.getString("count") + ". ");
+                System.out.println("PRICE: " + rs.getString("price") + "$");
             }
         } catch (SQLException e) {
             e.printStackTrace();

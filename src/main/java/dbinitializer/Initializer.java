@@ -1,4 +1,4 @@
-package db;
+package dbinitializer;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,10 +32,10 @@ public class Initializer {
                     String name = split[0].trim();
                     int id = Integer.parseInt(split[1].trim());
                     insertAuthors(id, name, connection);
-                    System.out.println("All Authors added in database");
+                    System.out.println("All authors added in database");
                 }
             } else {
-                System.out.println("Database is already initialized");
+                System.out.println("Author database is already initialized");
             }
             st.close();
             connection.close();
@@ -64,7 +64,7 @@ public class Initializer {
                     System.out.println("All books added in database");
                 }
             } else {
-                System.out.println("Database is already initialized");
+                System.out.println("Book Database is already initialized");
             }
             st.close();
             connection.close();
